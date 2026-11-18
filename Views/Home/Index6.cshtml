@@ -1,0 +1,601 @@
+﻿```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECC | 50 Years</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            color: #ffffff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            background: #031426;
+        }
+
+        /* HEADER */
+
+        .header {
+            height: 52px;
+            background: #031426;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            height: 37px;
+            width: 112px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+            .logo .ecc {
+                font-size: 31px;
+                line-height: 1;
+                font-weight: 900;
+                letter-spacing: -2.5px;
+            }
+
+            .logo .fifty {
+                font-size: 24px;
+                font-weight: 800;
+                color: #c49a58;
+                letter-spacing: -2px;
+                margin-left: 3px;
+            }
+
+            .logo small {
+                position: absolute;
+                top: 29px;
+                left: 52px;
+                font-size: 5px;
+                letter-spacing: 0;
+                color: #ffffff;
+            }
+
+        /* HEADER ICONS */
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-icon {
+            font-size: 17px;
+            font-weight: 300;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            width: 17px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        /* HIDDEN CHECKBOX */
+
+        #menu-check {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* MENU POPUP - CLOSED BY DEFAULT */
+
+        .menu-popup {
+            position: relative;
+            background: #031426;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            border-top: 0 solid #f1f1f1;
+            transition: max-height 0.45s ease, opacity 0.3s ease, border-top-width 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* MENU POPUP - OPEN */
+
+        #menu-check:checked ~ .menu-popup {
+            max-height: 600px;
+            opacity: 1;
+            visibility: visible;
+            /* White gap between header and popup */
+            border-top: 20px solid #f1f1f1;
+        }
+
+        /* POPUP CONTENT */
+
+        .popup-inner {
+            padding: 25px 30px 45px;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        .close-menu {
+            cursor: pointer;
+            font-size: 19px;
+            font-weight: 300;
+            display: inline-flex;
+            width: 17px;
+            height: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* MENU COLUMNS */
+
+        .menu-columns {
+            display: grid;
+            grid-template-columns: 27% 28% 23% 22%;
+        }
+
+        .menu-column h3 {
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 0.2px;
+        }
+
+        .menu-column ul {
+            list-style: none;
+        }
+
+        .menu-column li {
+            margin-bottom: 5px;
+        }
+
+            .menu-column li a {
+                font-size: 9px;
+                color: #8995a3;
+                transition: color 0.2s ease;
+            }
+
+                .menu-column li a:hover {
+                    color: #ffffff;
+                }
+
+        /* SOCIAL ICONS */
+
+        .social-links {
+            display: flex;
+            gap: 24px;
+            padding-top: 7px;
+            padding-left: 4px;
+        }
+
+            .social-links a {
+                color: #ff1524;
+                font-size: 12px;
+            }
+
+        /* BLUE SEPARATOR */
+
+        .separator {
+            height: 58px;
+            background: #1b3654;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 20px;
+        }
+
+        .back-top {
+            font-size: 8px;
+        }
+
+            .back-top span {
+                color: #ff1524;
+                margin-right: 4px;
+            }
+
+        /* FOOTER */
+
+        .footer {
+            background: #031426;
+            padding: 28px 24px 12px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            min-height: 110px;
+        }
+
+        .footer-logo {
+            margin-bottom: 24px;
+        }
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            width: 340px;
+            max-width: 95%;
+        }
+
+            .newsletter label {
+                display: block;
+                font-size: 8px;
+                margin-bottom: 8px;
+                color: #d5dbe1;
+            }
+
+        .newsletter-form {
+            display: flex;
+            height: 23px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+            .newsletter-form input {
+                flex: 1;
+                width: 50%;
+                min-width: 0;
+                border: none;
+                outline: none;
+                padding: 0 12px;
+                font-size: 8px;
+                background: #ffffff;
+            }
+
+            .newsletter-form button {
+                width: 90px;
+                flex-shrink: 0;
+                border: none;
+                background: #d2d3d5;
+                font-size: 8px;
+                cursor: pointer;
+                color: #14212c;
+            }
+
+                .newsletter-form button span {
+                    color: #ed1828;
+                    margin-left: 6px;
+                }
+
+        /* FOOTER LINKS */
+
+        .footer-right {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            padding-top: 4px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 35px;
+            row-gap: 8px;
+        }
+
+            .footer-links a {
+                font-size: 8px;
+                white-space: nowrap;
+                color: #d0d6de;
+                position: relative;
+                padding-left: 11px;
+            }
+
+                .footer-links a::before {
+                    content: "›";
+                    position: absolute;
+                    left: 0;
+                    top: -2px;
+                    font-size: 13px;
+                    color: #ff1524;
+                }
+
+                .footer-links a:hover {
+                    color: #ffffff;
+                }
+
+        .footer-social {
+            display: flex;
+            gap: 23px;
+            padding-right: 6px;
+        }
+
+            .footer-social a {
+                font-size: 12px;
+                color: #ff1524;
+            }
+
+        /* COPYRIGHT */
+
+        .copyright {
+            border-top: 1px solid #243444;
+            padding-top: 13px;
+            margin-top: 13px;
+            font-size: 7px;
+            color: #a2acb8;
+        }
+
+        /* TABLET AND MOBILE */
+
+        @@media (max-width: 650px) {
+            .header {
+                height: 48px;
+                padding: 0 16px;
+            }
+
+            .popup-inner {
+                padding: 22px 17px 30px;
+            }
+
+            .popup-header {
+                margin-bottom: 35px;
+            }
+
+            .menu-columns {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px 18px;
+            }
+
+            .menu-column h3 {
+                font-size: 13px;
+            }
+
+            .social-links {
+                padding-top: 0;
+            }
+
+            .footer {
+                padding: 25px 17px 12px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-right {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .footer-links {
+                column-gap: 25px;
+                row-gap: 10px;
+            }
+
+            .footer-social {
+                gap: 18px;
+            }
+
+            .newsletter {
+                width: 300px;
+            }
+        }
+
+        @@media (max-width: 360px) {
+            .menu-columns {
+                column-gap: 10px;
+            }
+
+            .footer-right {
+                gap: 20px;
+            }
+
+            .footer-links {
+                column-gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="site">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <a href="#" class="logo" aria-label="ECC Home">
+                <span class="ecc">ECC</span>
+                <span class="fifty">50</span>
+                <small>EST 1975</small>
+            </a>
+
+            <div class="header-actions">
+
+                <a href="#" class="search-icon" aria-label="Search">⌕</a>
+
+                <label for="menu-check"
+                       class="menu-toggle"
+                       aria-label="Open menu">≡</label>
+
+            </div>
+
+        </header>
+
+        <!-- MENU TOGGLE -->
+
+        <input type="checkbox" id="menu-check">
+
+        <!-- EXPANDABLE MENU -->
+
+        <nav class="menu-popup" aria-label="Main navigation">
+
+            <div class="popup-inner">
+
+                <div class="popup-header">
+
+                    <a href="#" class="logo" aria-label="ECC Home">
+                        <span class="ecc">ECC</span>
+                        <span class="fifty">50</span>
+                        <small>EST 1975</small>
+                    </a>
+
+                    <label for="menu-check"
+                           class="close-menu"
+                           aria-label="Close menu">×</label>
+
+                </div>
+
+                <div class="menu-columns">
+
+                    <div class="menu-column">
+                        <h3>The Company</h3>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Leadership</a></li>
+                            <li><a href="#">The Group</a></li>
+                            <li><a href="#">News &amp; Events</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-column">
+                        <h3>Expertise</h3>
+                        <ul>
+                            <li><a href="#">Expertise Overview</a></li>
+                            <li><a href="#">Construction</a></li>
+                            <li><a href="#">Design &amp; Build</a></li>
+                            <li><a href="#">Value Engineering</a></li>
+                            <li><a href="#">Excellence &amp; Innovation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-column">
+                        <h3>Projects</h3>
+                        <ul>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Sectors</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">▣</a>
+                        <a href="#" aria-label="Instagram">◎</a>
+                        <a href="#" aria-label="Facebook">f</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- BLUE SEPARATOR -->
+
+        <div class="separator">
+            <a href="#" class="back-top">
+                <span>↑</span> Back to top
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a href="#" class="logo footer-logo"
+                       aria-label="ECC Home">
+                        <span class="ecc">ECC</span>
+                        <span class="fifty">50</span>
+                        <small>EST 1975</small>
+                    </a>
+
+                    <div class="newsletter">
+
+                        <label for="newsletter-email">
+                            Subscribe to our Newsletter
+                        </label>
+
+                        <form class="newsletter-form"
+                              action="#"
+                              method="get">
+
+                            <input type="email"
+                                   id="newsletter-email"
+                                   name="email"
+                                   placeholder="Email"
+                                   required>
+
+                            <button type="submit">
+                                Send <span>›</span>
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-right">
+
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Expertise</a>
+                        <a href="#">Projects</a>
+                        <a href="#">FAQs</a>
+                        <a href="#">News &amp; Events</a>
+                        <a href="#">Contact</a>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn">▣</a>
+                        <a href="#" aria-label="Instagram">◎</a>
+                        <a href="#" aria-label="Facebook">f</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                Engineering Contracting Co. LLC. All Rights Reserved. © 2026.
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
+```

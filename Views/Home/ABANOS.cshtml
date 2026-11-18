@@ -1,0 +1,1144 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ABANOS</title>
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+        }
+
+
+        /* =========================================================
+           MAIN WRAPPER
+        ========================================================= */
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            background: #ffffff;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            width: 100%;
+            height: 60px;
+
+            background-color: #351d0d;
+
+            border-top: 2px solid #0086a5;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 32px;
+        }
+
+
+        /* =========================================================
+           HEADER LOGO
+        ========================================================= */
+
+        .header-logo {
+            width: 100px;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo-symbol {
+            color: #ffffff;
+
+            font-size: 13px;
+            line-height: 10px;
+
+            margin-bottom: 2px;
+        }
+
+        .header-logo-name {
+            color: #ffffff;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 12px;
+            line-height: 13px;
+
+            letter-spacing: 0.5px;
+        }
+
+        .header-logo-text {
+            color: #ffffff;
+
+            font-size: 4px;
+
+            letter-spacing: 1px;
+
+            line-height: 5px;
+        }
+
+
+        /* =========================================================
+           HEADER NAVIGATION
+        ========================================================= */
+
+        .header-menu {
+            display: flex;
+            align-items: center;
+
+            gap: 16px;
+        }
+
+        .header-menu a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 7px;
+
+            white-space: nowrap;
+        }
+
+        .header-menu a:hover {
+            color: #c9a77b;
+        }
+
+        .expertise {
+            display: flex;
+            align-items: center;
+
+            gap: 3px;
+        }
+
+        .arrow {
+            font-size: 5px;
+        }
+
+
+        /* =========================================================
+           WHITE CONTENT AREA
+           
+           This is the complete white space between
+           header and footer.
+        ========================================================= */
+
+        .content {
+            width: 100%;
+
+            background: #ffffff;
+
+            flex: 1;
+
+            min-height: 108px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+            width: 100%;
+
+            height: 210px;
+
+            background-color: #351d0d;
+
+            border-bottom: 2px solid #0086a5;
+
+            position: relative;
+
+            padding: 15px 34px 10px 34px;
+        }
+
+
+        /* =========================================================
+           FOOTER MAIN ROW
+        ========================================================= */
+
+        .footer-main {
+            width: 100%;
+
+            display: flex;
+            align-items: flex-start;
+        }
+
+
+        /* =========================================================
+           FOOTER LOGO SECTION
+        ========================================================= */
+
+        .footer-logo-section {
+            width: 23%;
+
+            padding-top: 1px;
+        }
+
+        .footer-logo {
+            width: 115px;
+
+            color: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo-symbol {
+            color: #ffffff;
+
+            font-size: 19px;
+
+            line-height: 14px;
+
+            margin-bottom: 1px;
+        }
+
+        .footer-logo-name {
+            color: #ffffff;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 18px;
+
+            line-height: 18px;
+
+            letter-spacing: 0.5px;
+        }
+
+        .footer-logo-text {
+            color: #ffffff;
+
+            font-size: 4px;
+
+            line-height: 5px;
+
+            letter-spacing: 1.2px;
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .footer-services {
+            width: 25%;
+        }
+
+
+        /* =========================================================
+           SITE MAP
+        ========================================================= */
+
+        .footer-sitemap {
+            width: 25%;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .footer-contact {
+            width: 27%;
+        }
+
+
+        /* =========================================================
+           FOOTER HEADINGS
+        ========================================================= */
+
+        .footer-heading {
+            color: #c5a477;
+
+            font-size: 8px;
+
+            font-weight: normal;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================================
+           FOOTER LINKS
+        ========================================================= */
+
+        .footer-list {
+            list-style: none;
+        }
+
+        .footer-list li {
+            margin-bottom: 4px;
+        }
+
+        .footer-list a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 6.5px;
+
+            line-height: 8px;
+        }
+
+        .footer-list a:hover {
+            color: #c5a477;
+        }
+
+
+        /* =========================================================
+           CONTACT DETAILS
+        ========================================================= */
+
+        .contact-row {
+            display: flex;
+
+            align-items: flex-start;
+
+            margin-bottom: 6px;
+        }
+
+        .contact-icon {
+            width: 12px;
+
+            color: #ffffff;
+
+            font-size: 7px;
+
+            line-height: 8px;
+        }
+
+        .contact-value {
+            color: #ffffff;
+
+            font-size: 6.5px;
+
+            line-height: 8px;
+        }
+
+
+        /* =========================================================
+           SOCIAL ICONS
+        ========================================================= */
+
+        .social-icons {
+            margin-top: 7px;
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .social-icons span {
+            color: #ffffff;
+
+            font-size: 7px;
+        }
+
+
+        /* =========================================================
+           CERTIFICATION AREA
+        ========================================================= */
+
+        .certification {
+            position: absolute;
+
+            left: 34px;
+
+            bottom: 31px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        /* =========================================================
+           FSC
+        ========================================================= */
+
+        .fsc {
+            width: 42px;
+            height: 44px;
+
+            border: 1px solid #ffffff;
+
+            border-radius: 3px;
+
+            color: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .fsc-symbol {
+            font-size: 20px;
+
+            line-height: 15px;
+        }
+
+        .fsc-title {
+            font-size: 6px;
+
+            font-weight: bold;
+
+            margin-top: 2px;
+        }
+
+        .fsc-small {
+            font-size: 3.5px;
+
+            line-height: 5px;
+        }
+
+
+        /* =========================================================
+           CERTIFICATE
+        ========================================================= */
+
+        .certificate {
+            width: 51px;
+            height: 22px;
+
+            background: #ffffff;
+
+            border-radius: 2px;
+
+            color: #351d0d;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 4.5px;
+
+            text-align: center;
+        }
+
+        .certificate-logo {
+            font-size: 11px;
+
+            font-weight: bold;
+
+            margin-left: 3px;
+        }
+
+
+        /* =========================================================
+           ECC GROUP
+        ========================================================= */
+
+        /* =========================================================
+           ECC GROUP
+        ========================================================= */
+
+        .ecc {
+            position: absolute;
+            right: 25px;
+            bottom: 31px;
+            width: 150px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .ecc-logo {
+            width: 145px;
+            height: auto;
+            display: block;
+        }
+
+        /* =========================================================
+           ECC NAME
+        ========================================================= */
+
+        .ecc-name {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           ECC MAIN LOGO
+        ========================================================= */
+
+        .ecc-main {
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 39px;
+            font-weight: 900;
+            line-height: 34px;
+            letter-spacing: -3px;
+            display: inline-block;
+        }
+
+
+        /* =========================================================
+           GROUP + EST 1975
+        ========================================================= */
+
+        .ecc-group-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: 4px;
+            padding-top: 4px;
+        }
+
+
+        /* GROUP */
+
+        .ecc-group {
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 13px;
+            white-space: nowrap;
+        }
+
+
+        /* EST 1975 */
+
+        .ecc-est {
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 6px;
+            font-weight: 400;
+            line-height: 7px;
+            margin-top: 1px;
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
+           ECC WEBSITE TEXT
+        ========================================================= */
+
+        .ecc-link {
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 7px;
+            font-weight: 400;
+            line-height: 10px;
+            margin-top: 10px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
+           COPYRIGHT
+        ========================================================= */
+
+        .copyright {
+            position: absolute;
+            right: 25px;
+            bottom: 10px;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 6px;
+            font-weight: 400;
+            line-height: 8px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        /* =========================================================
+           DESKTOP / LARGE SCREEN
+        ========================================================= */
+
+        @@media (min-width: 1000px) {
+
+            .header {
+                height: 60px;
+                padding-left: 32px;
+                padding-right: 17px;
+            }
+
+            .content {
+                min-height: 108px;
+            }
+
+            .footer {
+                height: 210px;
+            }
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @@media (max-width: 800px) {
+
+            .header {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .header-menu {
+                gap: 10px;
+            }
+
+            .header-menu a {
+                font-size: 6px;
+            }
+
+            .footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .certification {
+                left: 20px;
+            }
+
+            .ecc {
+                right: 20px;
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @@media (max-width: 600px) {
+
+            .header {
+                height: auto;
+
+                min-height: 70px;
+
+                padding: 10px 15px;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+            .header-menu {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 8px;
+            }
+
+            .content {
+                min-height: 200px;
+            }
+
+            .footer {
+                height: auto;
+
+                min-height: 480px;
+
+                padding: 25px 20px;
+            }
+
+            .footer-main {
+                flex-wrap: wrap;
+            }
+
+            .footer-logo-section,
+            .footer-services,
+            .footer-sitemap,
+            .footer-contact {
+                width: 50%;
+
+                margin-bottom: 25px;
+            }
+
+            .certification {
+                position: static;
+
+                margin-top: 15px;
+            }
+
+            .ecc {
+                position: static;
+
+                margin-top: 25px;
+
+                text-align: left;
+            }
+
+            .ecc-name {
+                justify-content: flex-start;
+            }
+
+            .copyright {
+                position: static;
+
+                margin-top: 25px;
+
+                text-align: right;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         COMPLETE PAGE
+    ====================================================== -->
+
+    <div class="page">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="header">
+
+
+            <!-- ABANOS HEADER LOGO -->
+
+            <a href="#" class="header-logo">
+
+                <div class="header-logo-symbol">
+                    ♠
+                </div>
+
+                <div class="header-logo-name">
+                    ABANOS
+                </div>
+
+                <div class="header-logo-text">
+                    INTERIORS & FIT-OUT
+                </div>
+
+            </a>
+
+
+            <!-- HEADER MENU -->
+
+            <nav class="header-menu">
+
+                <a href="#">
+                    Home
+                </a>
+
+                <a href="#">
+                    About Us
+                </a>
+
+                <a href="#" class="expertise">
+                    Our Expertise
+                    <span class="arrow">▼</span>
+                </a>
+
+                <a href="#">
+                    Projects
+                </a>
+
+                <a href="#">
+                    News
+                </a>
+
+                <a href="#">
+                    Sustainability
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </nav>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             WHITE SPACE / CONTENT
+
+             KEEP THIS BETWEEN HEADER AND FOOTER
+        ================================================== -->
+
+        <main class="content">
+
+            <!--
+
+                YOUR PAGE CONTENT GOES HERE
+
+            -->
+
+        </main>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="footer">
+
+
+            <!-- =============================================
+                 FOOTER TOP CONTENT
+            ============================================== -->
+
+            <div class="footer-main">
+
+
+                <!-- =========================================
+                     ABANOS LOGO
+                ========================================== -->
+
+                <div class="footer-logo-section">
+
+                    <div class="footer-logo">
+
+                        <div class="footer-logo-symbol">
+                            ♠
+                        </div>
+
+                        <div class="footer-logo-name">
+                            ABANOS
+                        </div>
+
+                        <div class="footer-logo-text">
+                            INTERIORS & FIT-OUT
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     SERVICES
+                ========================================== -->
+
+                <div class="footer-services">
+
+                    <h3 class="footer-heading">
+                        Services
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <a href="#">
+                                Interior Fit-Out
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Joinery
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     SITE MAP
+                ========================================== -->
+
+                <div class="footer-sitemap">
+
+                    <h3 class="footer-heading">
+                        Site Map
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Projects
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                News
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Sustainability
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Contact
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Manufacturer's License
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     CONTACT US
+                ========================================== -->
+
+                <div class="footer-contact">
+
+                    <h3 class="footer-heading">
+                        Contact Us
+                    </h3>
+
+
+                    <div class="contact-row">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div class="contact-value">
+                            +971 4 895 1855
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-row">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div class="contact-value">
+                            +971 56 489 1111
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-row">
+
+                        <div class="contact-icon">
+                            ●
+                        </div>
+
+                        <div class="contact-value">
+                            114480, DUBAI, UAE
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-row">
+
+                        <div class="contact-icon">
+                            &#64;
+                        </div>
+
+                        <div class="contact-value">
+                            info@abanos.ae
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-icons">
+
+                        <span>●</span>
+                        <span>●</span>
+                        <span>●</span>
+                        <span>●</span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 CERTIFICATION LOGOS
+            ============================================== -->
+
+            <div class="certification">
+
+
+                <!-- FSC -->
+
+                <div class="fsc">
+
+                    <div class="fsc-symbol">
+                        ♡
+                    </div>
+
+                    <div class="fsc-title">
+                        FSC
+                    </div>
+
+                    <div class="fsc-small">
+                        FSC MIX
+                    </div>
+
+                    <div class="fsc-small">
+                        The mark of
+                    </div>
+
+                    <div class="fsc-small">
+                        responsible forestry
+                    </div>
+
+                </div>
+
+
+
+                <!-- OTHER CERTIFICATE -->
+
+                <div class="certificate">
+
+                    <span>
+                        Find us at
+                    </span>
+
+                    <span class="certificate-logo">
+                        A
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ECC GROUP
+            ============================================== -->
+            <!-- ECC GROUP -->
+            <div class="ecc">
+                <div class="ecc-name">
+                        <img src="~/images/ecc-logo.svg" class="ecc-logo" alt="ECC Group" />
+                    </div>
+                <div class="ecc-name">
+                    
+             @*        <span class="ecc-main">
+                        ECC
+                    </span> *@
+
+                  @*   <div class="ecc-group-wrapper">
+
+                        <span class="ecc-group">
+                            GROUP
+                        </span>
+
+                        <span class="ecc-est">
+                            EST 1975
+                        </span>
+
+                    </div> *@
+
+                </div>
+
+                <div class="ecc-link">
+                    Click to visit ECC Website
+                </div>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+
+            <div class="copyright">
+                © 2026 Abanos. All rights reserved
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+</body>
+</html>

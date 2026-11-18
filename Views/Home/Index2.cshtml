@@ -1,0 +1,544 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>United Masters</title>
+
+    <style>
+        :root {
+            --red: #8b0000;
+            --dark-red: #790000;
+            --text: #4a4141;
+            --muted: #777;
+            --border: #e9e5e5;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff;
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =====================================
+                   MAIN PAGE FRAME
+                ===================================== */
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 0 2px;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+
+        /* =====================================
+                   HEADER
+                ===================================== */
+
+        .header {
+            width: 100%;
+            min-height: 57px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 8px 4%;
+            border-bottom: 1px solid var(--border);
+            background: #fff;
+        }
+
+        /* LOGO */
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .brand-symbol {
+            width: 29px;
+            height: 29px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .brand-symbol svg {
+                width: 100%;
+                height: 100%;
+            }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .brand-name {
+            color: #292424;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(9px, 1.1vw, 14px);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -.3px;
+        }
+
+        .brand-subtitle {
+            color: #5c5353;
+            font-size: 5px;
+            letter-spacing: .1px;
+            line-height: 1.5;
+        }
+
+        .brand-anniversary {
+            color: var(--red);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            font-style: italic;
+            font-weight: bold;
+            line-height: 1;
+            white-space: nowrap;
+            margin-left: 2px;
+        }
+
+            .brand-anniversary small {
+                display: block;
+                font-family: Arial, sans-serif;
+                font-size: 4px;
+                font-style: normal;
+                text-align: center;
+                letter-spacing: .3px;
+            }
+
+        /* NAVIGATION */
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(10px, 1.6vw, 25px);
+        }
+
+            .navigation a {
+                font-family: Georgia, "Times New Roman", serif;
+                font-size: clamp(6px, .65vw, 9px);
+                color: #8b2929;
+                text-transform: uppercase;
+                white-space: nowrap;
+                padding: 8px 0;
+                border-bottom: 1px solid transparent;
+                transition: color .2s ease, border-color .2s ease;
+            }
+
+                .navigation a:hover,
+                .navigation a.active {
+                    color: var(--red);
+                    border-bottom-color: var(--red);
+                }
+
+        /* =====================================
+                   EMPTY HERO / BANNER AREA
+                ===================================== */
+
+        .hero {
+            width: 100%;
+            min-height: 60vh;
+            flex: 1;
+            background: #fff;
+            border-bottom: 1px solid #f0eeee;
+            position: relative;
+        }
+
+        /* =====================================
+                   CONTACT INFORMATION
+                ===================================== */
+
+        .contact-section {
+            width: 100%;
+            min-height: 125px;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr 1fr 1fr;
+            align-items: center;
+            gap: 15px;
+            padding: 22px 4.5%;
+            background: #fff;
+            border-bottom: 1px solid #f0eeee;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            min-width: 0;
+        }
+
+        .contact-icon {
+            width: 29px;
+            height: 29px;
+            flex-shrink: 0;
+            border: 1px solid #d8c9c1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b2929;
+            font-size: 13px;
+        }
+
+        .contact-item:nth-child(2) .contact-icon {
+            border-radius: 4px;
+        }
+
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-title {
+            color: #6a5b58;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .contact-detail {
+            color: #a34545;
+            font-size: 8px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        /* =====================================
+                   FOOTER
+                ===================================== */
+
+        .footer {
+            width: 100%;
+            min-height: 69px;
+            background: var(--red);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 15px 4.5%;
+        }
+
+        .copyright {
+            color: rgba(255,255,255,.9);
+            font-size: 7px;
+            line-height: 1.8;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-align: right;
+        }
+
+        .footer-right-text {
+            font-size: 6px;
+            line-height: 1.5;
+        }
+
+        .footer-mark {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        /* =====================================
+                   RESPONSIVE
+                ===================================== */
+
+        @@media (min-width: 1200px) {
+            .header {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero {
+                min-height: 60vh;
+            }
+        }
+
+        @@media (max-width: 700px) {
+            .header {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 12px 15px;
+                gap: 12px;
+            }
+
+            .brand {
+                justify-content: center;
+            }
+
+            .navigation {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px 16px;
+            }
+
+                .navigation a {
+                    font-size: 8px;
+                }
+
+            .hero {
+                min-height: 42vh;
+            }
+
+            .contact-section {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px 15px;
+                padding: 25px 5%;
+            }
+
+            .contact-item {
+                gap: 8px;
+            }
+
+            .contact-title {
+                font-size: 8px;
+            }
+
+            .contact-detail {
+                font-size: 8px;
+            }
+        }
+
+        @@media (max-width: 400px) {
+            .brand-anniversary {
+                font-size: 18px;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .copyright {
+                font-size: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- =====================================
+             HEADER / LOGO / NAVIGATION
+        ====================================== -->
+
+        <header class="header">
+
+            <a href="#" class="brand" aria-label="United Masters home">
+
+                <span class="brand-symbol">
+                    <svg viewBox="0 0 40 40"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M5 14 L17 2 L29 14 L17 26 Z"
+                              fill="#8b2929" />
+
+                        <path d="M17 10 L24 17 L17 24 L10 17 Z"
+                              fill="#fff" />
+
+                        <path d="M19 27 L29 17 L35 23 L25 33 Z"
+                              fill="#a43c3c" />
+
+                    </svg>
+                </span>
+
+                <span class="brand-text">
+                    <span class="brand-name">UNITED MASTERS</span>
+                    <span class="brand-subtitle">
+                        TECHNICAL &amp; COMMERCIAL SERVICES
+                    </span>
+                </span>
+
+                <span class="brand-anniversary">
+                    30
+                    <small>YEARS OF EXCELLENCE</small>
+                </span>
+
+            </a>
+
+            <nav class="navigation" aria-label="Main navigation">
+                <a href="#" class="active">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Projects</a>
+                <a href="#">MEP &amp; Maintenance</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </nav>
+
+        </header>
+
+
+        <!-- =====================================
+             MAIN BANNER AREA
+        ====================================== -->
+
+        <main class="hero" aria-label="Main banner">
+            <!-- Add banner content or a background image here if needed. -->
+        </main>
+
+
+        <!-- =====================================
+             CONTACT SECTION
+        ====================================== -->
+
+        <section class="contact-section" aria-label="Contact information">
+
+            <!-- WORKING HOURS -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon" aria-hidden="true">
+                    &#9719;
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-title">Monday - Friday</div>
+                    <div class="contact-detail">
+                        7:30 AM - 5:30 PM
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon" aria-hidden="true">
+                    &#9993;
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-title">Email Us On</div>
+                    <div class="contact-detail">
+                        info@unitedmasters.net
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- DUBAI -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon" aria-hidden="true">
+                    &#9678;
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-title">Dubai</div>
+                    <div class="contact-detail">
+                        +971 4 323 7670
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ABU DHABI -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon" aria-hidden="true">
+                    &#9678;
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-title">Abu Dhabi</div>
+                    <div class="contact-detail">
+                        +971 2 671 7922
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="footer">
+
+            <div class="copyright">
+                Copyright © 2026 unitedmasters.net. All rights reserved.
+            </div>
+
+            <div class="footer-right">
+
+                <div class="footer-right-text">
+                    Designed by<br>
+                    <strong>United Masters</strong>
+                </div>
+
+                <svg class="footer-mark"
+                     viewBox="0 0 30 30"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="M3 7 L12 2 L20 10 L12 18 Z"
+                          fill="#fff" />
+
+                    <path d="M14 20 L20 14 L27 21 L21 27 Z"
+                          fill="#fff" />
+
+                </svg>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
+}

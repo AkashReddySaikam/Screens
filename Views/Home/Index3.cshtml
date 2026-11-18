@@ -1,0 +1,437 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMT - Contact Us</title>
+
+    <style>
+        :root {
+            --orange: #eca336;
+            --black: #000000;
+            --white: #ffffff;
+            --footer-text: #e6e6e6;
+            --icon-grey: #8d8d8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "Avenir Next", Avenir, "Segoe UI", Arial, Helvetica, sans-serif;
+            color: #222;
+            background: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==============================
+                   HEADER
+                ============================== */
+
+        .header {
+            width: 100%;
+            height: 70px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 150px;
+        }
+
+        .logo-symbol {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #414141;
+        }
+
+        .logo-description {
+            display: flex;
+            flex-direction: column;
+            font-size: 8px;
+            line-height: 1.4;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+            .logo-description strong {
+                font-size: 9px;
+            }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+            .navigation a {
+                color: #333;
+                font-size: 11px;
+                text-transform: uppercase;
+                white-space: nowrap;
+                padding: 8px 0;
+                transition: color .2s ease;
+            }
+
+                .navigation a:hover,
+                .navigation a.active {
+                    color: var(--orange);
+                }
+
+        /* ==============================
+                   MAIN WHITE SECTION
+                ============================== */
+
+        .main-content {
+            width: 100%;
+            min-height: calc(100vh - 340px);
+            background: #fff;
+        }
+
+        /* ==============================
+                   BLACK FOOTER
+                ============================== */
+
+        .footer {
+            width: 100%;
+            background: var(--black);
+            color: var(--footer-text);
+            padding: 56px 20px 60px;
+        }
+
+        .footer-inner {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 70px;
+            align-items: start;
+        }
+
+        .footer-heading {
+            color: var(--orange);
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 38px;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: start;
+            column-gap: 38px;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+            .contact-details a:hover {
+                color: var(--orange);
+            }
+
+        .social-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 40px;
+        }
+
+            .social-links a {
+                width: 16px;
+                height: 16px;
+                color: var(--icon-grey);
+                transition: color .2s ease;
+            }
+
+                .social-links a:hover {
+                    color: var(--orange);
+                }
+
+            .social-links svg {
+                width: 100%;
+                height: 100%;
+                fill: currentColor;
+                display: block;
+            }
+
+        .copyright {
+            margin-top: 34px;
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        /* CONTACT FORM */
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            column-gap: 6px;
+            align-items: start;
+        }
+
+            .contact-form label {
+                display: block;
+                font-size: 13px;
+                font-weight: 300;
+                margin-bottom: 4px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                border: 1px solid var(--white);
+                border-radius: 0;
+                outline: none;
+                background: var(--black);
+                color: var(--white);
+                font-family: inherit;
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .contact-form input {
+                height: 36px;
+                margin-bottom: 14px;
+            }
+
+            .contact-form textarea {
+                height: 100px;
+                resize: none;
+            }
+
+                .contact-form input:focus,
+                .contact-form textarea:focus {
+                    border-color: var(--orange);
+                }
+
+        .submit-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .submit-button {
+            background: var(--orange);
+            color: #111;
+            border: 0;
+            width: 94px;
+            height: 38px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: background .2s ease;
+        }
+
+            .submit-button:hover {
+                background: #f5b552;
+            }
+
+        /* ==============================
+                   RESPONSIVE
+                ============================== */
+
+        @@media (max-width: 800px) {
+            .footer-inner
+
+        {
+            grid-template-columns: 1fr;
+            row-gap: 46px;
+        }
+
+        .footer-heading {
+            margin-bottom: 26px;
+        }
+
+        }
+
+        @@media (max-width: 650px) {
+            .header
+
+        {
+            height: auto;
+            padding: 14px 18px;
+        }
+
+        .header-inner {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .navigation {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 16px;
+        }
+
+        .main-content {
+            min-height: 30vh;
+        }
+
+        }
+
+        @@media (max-width: 480px) {
+            .contact-details
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-form {
+            grid-template-columns: 1fr;
+        }
+
+            .contact-form textarea {
+                margin-bottom: 4px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+        <div class="header-inner">
+
+            <a href="#" class="logo" aria-label="RMT home">
+                <span class="logo-symbol">RMT</span>
+
+                <span class="logo-description">
+                    <strong>Real Management</strong>
+                    Technical Services
+                </span>
+            </a>
+
+            <nav class="navigation" aria-label="Main navigation">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Projects</a>
+                <a href="#">MEP Services</a>
+                <a href="#">News</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content"></main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <!-- LEFT : GET IN TOUCH -->
+
+            <section>
+                <h2 class="footer-heading">GET IN TOUCH:</h2>
+
+                <div class="contact-details">
+
+                    <div>
+                        Tel: <a href="tel:+971000000000">+971 00 000 0000</a><br>
+                        Email: <a href="mailto:info@example.com">info@example.com</a>
+                    </div>
+
+                    <div>
+                        Jebel Ali, P.O. Box 00000<br>
+                        Dubai, UAE
+                    </div>
+
+                </div>
+
+                <div class="social-links">
+
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 320 512"><path d="M279 288l14-93h-89v-60c0-25 12-50 52-50h40V6S260 0 225 0c-73 0-121 44-121 125v70H23v93h81v224h100V288z" /></svg>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 448 512"><path d="M100 448H7V149h93zM54 108C24 108 0 83 0 53a54 54 0 11108 0c0 30-24 55-54 55zm394 340h-93V302c0-35-1-79-48-79-48 0-56 38-56 77v148h-93V149h89v41h1c13-24 43-48 88-48 94 0 111 62 111 142z" /></svg>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 448 512"><path d="M224 141c-64 0-115 51-115 115s51 115 115 115 115-51 115-115-51-115-115-115zm0 190c-41 0-75-34-75-75s34-75 75-75 75 34 75 75-34 75-75 75zm146-194c0 15-12 27-27 27s-27-12-27-27 12-27 27-27 27 12 27 27zm76 27c-2-36-10-68-36-94s-58-34-94-36c-37-2-148-2-185 0-36 2-68 10-94 36S3 128 1 164c-2 37-2 148 0 185 2 36 10 68 36 94s58 34 94 36c37 2 148 2 185 0 36-2 68-10 94-36s34-58 36-94c2-37 2-148 0-185zm-48 225c-8 20-23 35-43 43-30 12-101 9-135 9s-105 3-135-9c-20-8-35-23-43-43-12-30-9-101-9-135s-3-105 9-135c8-20 23-35 43-43 30-12 101-9 135-9s105-3 135 9c20 8 35 23 43 43 12 30 9 101 9 135s3 105-9 135z" /></svg>
+                    </a>
+
+                </div>
+
+                <p class="copyright">
+                    &copy; 2026 Company Name LLC. All rights reserved.
+                </p>
+            </section>
+
+
+            <!-- RIGHT : CONTACT US -->
+
+            <section>
+                <h2 class="footer-heading">CONTACT US:</h2>
+
+                <form class="contact-form" action="#" method="post">
+
+                    <div>
+                        <label for="name">Enter Your Name</label>
+                        <input type="text" id="name" name="name">
+
+                        <label for="email">Enter Your Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div>
+                        <label for="message">Enter Your Message</label>
+                        <textarea id="message" name="message"></textarea>
+
+                        <div class="submit-row">
+                            <button type="submit" class="submit-button">Send</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

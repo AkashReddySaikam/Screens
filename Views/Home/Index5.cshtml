@@ -1,0 +1,636 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volta Pods | Prefabricated Construction</title>
+
+    <style>
+        :root {
+            --teal: #2d626d;
+            --dark-teal: #245661;
+            --header-bg: #f7f7f7;
+            --text: #315d66;
+            --white: #ffffff;
+            --line: rgba(255,255,255,0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .header {
+            width: 100%;
+            min-height: 38px;
+            padding: 0 4.2%;
+            background: var(--header-bg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 0;
+            color: #1f3438;
+        }
+
+        .logo-symbol {
+            position: relative;
+            width: 15px;
+            height: 17px;
+            flex-shrink: 0;
+            background: linear-gradient( to right, #dedede 0 44%, transparent 44% 52%, var(--teal) 52% 100% );
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-name {
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo-subtitle {
+            font-size: 4.4px;
+            line-height: 1;
+            letter-spacing: 1.15px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* HEADER NAVIGATION */
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(12px, 2vw, 24px);
+        }
+
+            .header-nav a {
+                font-size: 6.5px;
+                font-weight: 400;
+                white-space: nowrap;
+                color: #51747c;
+                transition: color .2s ease;
+            }
+
+                .header-nav a:hover,
+                .header-nav a.active {
+                    color: #173f49;
+                }
+
+            .header-nav .contact-btn {
+                border: 1px solid #8ba9ae;
+                padding: 5px 8px;
+                margin-left: 5px;
+                font-size: 6.5px;
+            }
+
+        /* CSS-ONLY MOBILE MENU */
+
+        .menu-check {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .menu-button {
+            display: none;
+            cursor: pointer;
+            font-size: 22px;
+            color: var(--teal);
+            line-height: 1;
+        }
+
+        /* ==============================
+           MAIN CONTENT
+        ============================== */
+
+        main {
+            flex: 1 0 auto;
+            min-height: 112px;
+            background: #fff;
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        .footer {
+            width: 100%;
+            background: var(--teal);
+            color: var(--white);
+            padding: 28px 4.2% 0;
+        }
+
+        /* TOP FOOTER ROW */
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.15fr 1.5fr 1fr;
+            align-items: center;
+            gap: 20px;
+            min-height: 53px;
+        }
+
+        /* FOOTER LOGO */
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            justify-self: start;
+            color: #fff;
+        }
+
+            .footer-logo .logo-symbol {
+                width: 15px;
+                height: 17px;
+                background: linear-gradient( to right, rgba(255,255,255,.8) 0 44%, transparent 44% 52%, #fff 52% 100% );
+            }
+
+            .footer-logo .logo-name {
+                font-size: 12px;
+                letter-spacing: .9px;
+                color: #fff;
+            }
+
+            .footer-logo .logo-subtitle {
+                font-size: 4px;
+                letter-spacing: 1.05px;
+                color: #fff;
+            }
+
+        /* FOOTER NAVIGATION */
+
+        .footer-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 22px);
+        }
+
+            .footer-nav a {
+                font-size: 6.5px;
+                white-space: nowrap;
+                color: rgba(255,255,255,.94);
+                transition: opacity .2s ease;
+            }
+
+                .footer-nav a:hover {
+                    opacity: .65;
+                }
+
+        /* ECC GROUP BRAND */
+
+        .group-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .group-caption {
+            font-size: 5px;
+            margin-bottom: 2px;
+        }
+
+        .group-name {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: .85;
+        }
+
+            .group-name span {
+                font-size: 6px;
+                letter-spacing: 1px;
+                vertical-align: middle;
+                margin-left: 2px;
+            }
+
+        .group-subtitle {
+            font-size: 3.5px;
+            letter-spacing: 1px;
+            margin-top: 3px;
+            text-align: right;
+        }
+
+        /* ==============================
+           FOOTER BOTTOM ROW
+        ============================== */
+
+        .footer-bottom {
+            border-top: 1px solid var(--line);
+            margin-top: 1px;
+            min-height: 44px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* SOCIAL ICONS */
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+            .socials a {
+                width: 13px;
+                height: 13px;
+                border: 1px solid rgba(255,255,255,.28);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 9px;
+                font-weight: 600;
+            }
+
+                .socials a:hover {
+                    background: rgba(255,255,255,.15);
+                }
+
+            .socials svg {
+                width: 9px;
+                height: 9px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.6;
+            }
+
+        /* CONTACT DETAILS */
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 12px;
+            row-gap: 7px;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 6.5px;
+            color: rgba(255,255,255,.94);
+            white-space: nowrap;
+        }
+
+            .contact-item svg {
+                width: 8px;
+                height: 8px;
+                flex-shrink: 0;
+                stroke: #fff;
+                fill: none;
+                stroke-width: 1.5;
+            }
+
+        /* COPYRIGHT */
+
+        .copyright {
+            font-size: 6.5px;
+            text-align: right;
+            white-space: nowrap;
+            color: rgba(255,255,255,.9);
+        }
+
+        /* ==============================
+           TABLET
+        ============================== */
+
+        @@media (max-width: 760px) {
+            .header
+
+        {
+            padding: 0 20px;
+            min-height: 52px;
+        }
+
+        .menu-button {
+            display: block;
+        }
+
+        .header-nav {
+            display: none;
+            position: absolute;
+            top: 52px;
+            left: 0;
+            right: 0;
+            padding: 22px 20px;
+            background: var(--header-bg);
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 5px 10px rgba(0,0,0,.06);
+        }
+
+        .menu-check:checked ~ .header .header-nav {
+            display: flex;
+        }
+
+        .header-nav a {
+            font-size: 12px;
+        }
+
+        .header-nav .contact-btn {
+            margin-left: 0;
+            padding: 8px 12px;
+        }
+
+        .footer {
+            padding: 24px 20px 0;
+        }
+
+        .footer-top {
+            grid-template-columns: 1fr 1fr;
+            row-gap: 22px;
+            padding-bottom: 22px;
+        }
+
+        .footer-nav {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 15px 22px;
+        }
+
+            .footer-nav a {
+                font-size: 10px;
+            }
+
+        .group-brand {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .footer-bottom {
+            grid-template-columns: 1fr;
+            justify-items: start;
+            gap: 14px;
+            padding: 16px 0;
+        }
+
+        .footer-contact {
+            justify-content: flex-start;
+            gap: 12px 18px;
+        }
+
+        .contact-item {
+            font-size: 10px;
+        }
+
+        .copyright {
+            text-align: left;
+            font-size: 9px;
+        }
+
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @@media (max-width: 420px) {
+            .footer
+
+        {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .footer-top {
+            grid-template-columns: 1fr 1fr;
+            gap: 22px 10px;
+        }
+
+        .footer-logo .logo-name {
+            font-size: 10px;
+        }
+
+        .footer-logo .logo-subtitle {
+            font-size: 3.5px;
+            letter-spacing: .8px;
+        }
+
+        .footer-nav {
+            gap: 14px 18px;
+        }
+
+            .footer-nav a {
+                font-size: 9px;
+            }
+
+        .footer-contact {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contact-item {
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .footer-bottom {
+            gap: 16px;
+        }
+
+        }
+
+        @@media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after
+
+        {
+            scroll-behavior: auto !important;
+            transition: none !important;
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CSS-ONLY MENU TOGGLE -->
+    <input type="checkbox" id="menuToggle" class="menu-check">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="#home" class="logo" aria-label="Volta Pods home">
+            <span class="logo-symbol"></span>
+            <span class="logo-text">
+                <span class="logo-name">VOLTA PODS</span>
+                <span class="logo-subtitle">PREFABRICATED CONSTRUCTION</span>
+            </span>
+        </a>
+
+        <label for="menuToggle" class="menu-button"
+               aria-label="Toggle navigation">☰</label>
+
+        <nav class="header-nav" aria-label="Main navigation">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#projects">Our Projects</a>
+            <a href="#support">Support</a>
+            <a href="#news">News</a>
+            <a href="#contact" class="contact-btn">Contact Us</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN WHITE SPACE -->
+    <main id="home"></main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+
+        <!-- FOOTER TOP -->
+        <div class="footer-top">
+
+            <!-- VOLTA PODS LOGO -->
+            <a href="#home" class="footer-logo" aria-label="Volta Pods home">
+                <span class="logo-symbol"></span>
+                <span class="logo-text">
+                    <span class="logo-name">VOLTA PODS</span>
+                    <span class="logo-subtitle">
+                        PREFABRICATED CONSTRUCTION
+                    </span>
+                </span>
+            </a>
+
+            <!-- FOOTER NAVIGATION -->
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#projects">Project</a>
+                <a href="#support">Support</a>
+                <a href="#news">News</a>
+            </nav>
+
+            <!-- ECC GROUP -->
+            <div class="group-brand">
+                <span class="group-caption">A Member Of</span>
+                <div class="group-name">ECC<span>GROUP</span></div>
+                <div class="group-subtitle">ENGINEERING &amp; CONSTRUCTION</div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+
+            <!-- SOCIAL MEDIA -->
+            <div class="socials">
+                <a href="https://www.facebook.com/"
+                   aria-label="Facebook" target="_blank"
+                   rel="noopener noreferrer">f</a>
+
+                <a href="https://www.instagram.com/"
+                   aria-label="Instagram" target="_blank"
+                   rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r=".8"
+                                fill="currentColor" />
+                    </svg>
+                </a>
+
+                <a href="https://x.com/"
+                   aria-label="X" target="_blank"
+                   rel="noopener noreferrer">𝕏</a>
+
+                <a href="https://www.linkedin.com/"
+                   aria-label="LinkedIn" target="_blank"
+                   rel="noopener noreferrer">in</a>
+            </div>
+
+            <!-- PHONE, EMAIL AND ADDRESS -->
+            <div class="footer-contact">
+
+                <a href="tel:+9711234565" class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 3h4l2 5-3 2a15 15 0 0 0 5 5l2-3 5 2v4c0 1-1 2-2 2A17 17 0 0 1 4 5c0-1 1-2 2-2Z" />
+                    </svg>
+                    <span>+071 123 4565</span>
+                </a>
+
+                <a href="mailto:info@voltapods.ae" class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="1" />
+                        <path d="m3 7 9 6 9-6" />
+                    </svg>
+                    <span>info@voltapods.ae</span>
+                </a>
+
+                <span class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                    <span>P.O. Box 82319, Al Quoz Industrial Area 3, Dubai.</span>
+                </span>
+
+            </div>
+
+            <!-- COPYRIGHT -->
+            <p class="copyright">© 2026 Volta Pods</p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+

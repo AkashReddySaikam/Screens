@@ -1,0 +1,602 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "ECC Group";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ECC Group</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #222222;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ================= HEADER ================= */
+
+        .ecc-header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .header-logo {
+            width: 145px;
+            height: auto;
+        }
+
+        .header-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .header-link {
+            color: #333333;
+            font-size: 15px;
+            padding: 10px 0;
+        }
+
+            .header-link:hover,
+            .header-link.active {
+                color: #c00000;
+            }
+
+        .header-contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 145px;
+            height: 48px;
+            background: #c00000;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+            .header-contact-btn:hover {
+                background: #8f0000;
+            }
+
+
+        /* ================= MAIN ================= */
+
+        .ecc-main {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f7f7f7;
+        }
+
+            .ecc-main::before {
+                content: "ECC GROUP";
+                font-size: 48px;
+                font-weight: bold;
+                letter-spacing: 5px;
+                color: #dddddd;
+            }
+
+
+        /* ================= FOOTER ================= */
+
+        .ecc-footer {
+            background: #171717;
+            color: white;
+            padding: 65px 7% 25px;
+        }
+
+
+        /* LOGO */
+
+        .footer-logo-row {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+
+        .footer-line {
+            height: 1px;
+            background: #555555;
+            flex: 1;
+        }
+
+        .footer-logo {
+            width: 155px;
+        }
+
+
+        /* COMPANY LINKS */
+
+        .company-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px 45px;
+            margin-bottom: 55px;
+        }
+
+            .company-links a {
+                color: #d5d5d5;
+                font-size: 14px;
+            }
+
+                .company-links a:hover {
+                    color: white;
+                }
+
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            max-width: 650px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+            .newsletter h3 {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 25px;
+            }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+            .newsletter-form input {
+                flex: 1;
+                height: 52px;
+                padding: 0 18px;
+                border: 1px solid #444444;
+                background: #222222;
+                color: white;
+                outline: none;
+            }
+
+            .newsletter-form button {
+                height: 52px;
+                padding: 0 30px;
+                border: none;
+                background: #c00000;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+                .newsletter-form button:hover {
+                    background: #8f0000;
+                }
+
+
+        /* FOOTER MENU */
+
+        .footer-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            padding: 25px 0;
+            border-top: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+            margin-bottom: 45px;
+        }
+
+            .footer-menu a {
+                color: #dddddd;
+                font-size: 14px;
+            }
+
+                .footer-menu a:hover {
+                    color: #c00000;
+                }
+
+
+        /* CONTACT */
+
+        .contact-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+            .contact-section h3 {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 30px;
+            }
+
+        .contact-information {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 35px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+            .contact-item a {
+                color: #cccccc;
+            }
+
+        .contact-icon {
+            color: #c00000;
+            font-size: 18px;
+        }
+
+
+        /* SOCIAL */
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+            .social-icons a {
+                width: 42px;
+                height: 42px;
+                border: 1px solid #444444;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+            }
+
+            .social-icons img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+
+        /* COPYRIGHT */
+
+        .copyright {
+            padding-top: 25px;
+            border-top: 1px solid #333333;
+            text-align: center;
+        }
+
+            .copyright p {
+                color: #888888;
+                font-size: 13px;
+            }
+
+
+        /* ================= MOBILE ================= */
+
+        @@media (max-width: 768px) {
+            .ecc-header
+
+        {
+            height: auto;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px 20px;
+        }
+
+        .header-menu {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 25px;
+        }
+
+        .header-contact-btn {
+            width: 200px;
+        }
+
+        .ecc-main {
+            min-height: 350px;
+        }
+
+            .ecc-main::before {
+                font-size: 30px;
+            }
+
+        .newsletter-form {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+
+        .footer-menu {
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-information {
+            flex-direction: column;
+        }
+
+        .footer-logo-row {
+            gap: 15px;
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ecc-page">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="ecc-header">
+
+            <div class="header-logo-container">
+
+                <a href="@Url.Action("Index", "Home")">
+
+                    <img src="~/images/ecc-logo.png"
+                         alt="ECC Group"
+                         class="header-logo" />
+
+                </a>
+
+            </div>
+
+
+            <nav class="header-menu">
+
+                <a href="@Url.Action("Index", "Home")"
+                   class="header-link active">
+                    Home
+                </a>
+
+                <a href="@Url.Action("About", "Home")"
+                   class="header-link">
+                    About Us
+                </a>
+
+                <a href="@Url.Action("Businesses", "Home")"
+                   class="header-link">
+                    Our Businesses
+                </a>
+
+                <a href="@Url.Action("Innovation", "Home")"
+                   class="header-link">
+                    Innovation
+                </a>
+
+            </nav>
+
+
+            <div class="header-contact-container">
+
+                <a href="@Url.Action("Contact", "Home")"
+                   class="header-contact-btn">
+
+                    CONTACT US
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="ecc-main">
+
+        </main>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="ecc-footer">
+
+
+            <div class="footer-logo-row">
+
+                <div class="footer-line"></div>
+
+                <img src="~/images/ecc-logo-white.png"
+                     alt="ECC Group"
+                     class="footer-logo" />
+
+                <div class="footer-line"></div>
+
+            </div>
+
+
+            <div class="company-links">
+
+                <a href="#">ECC Contracting</a>
+
+                <a href="#">Abaron</a>
+
+                <a href="#">United Water ElectroMechanical</a>
+
+                <a href="#">Prima Metal Industries</a>
+
+                <a href="#">Aurora</a>
+
+                <a href="#">ECC Fit-Out</a>
+
+                <a href="#">Conserv</a>
+
+                <a href="#">Deerboard</a>
+
+            </div>
+
+
+            <div class="newsletter">
+
+                <h3>Subscribe Our Newsletter</h3>
+
+                <form method="post"
+                      action="@Url.Action("Subscribe", "Home")"
+                      class="newsletter-form">
+
+                    <input type="email"
+                           name="email"
+                           placeholder="Your Email Address"
+                           required />
+
+                    <button type="submit">
+                        SUBSCRIBE
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <nav class="footer-menu">
+
+                <a href="@Url.Action("Index", "Home")">
+                    Home
+                </a>
+
+                <a href="@Url.Action("About", "Home")">
+                    About Us
+                </a>
+
+                <a href="@Url.Action("Businesses", "Home")">
+                    Our Businesses
+                </a>
+
+                <a href="@Url.Action("Innovation", "Home")">
+                    Innovation
+                </a>
+
+                <a href="@Url.Action("Contact", "Home")">
+                    Contact Us
+                </a>
+
+            </nav>
+
+
+            <section class="contact-section">
+
+                <h3>Contact Us</h3>
+
+                <div class="contact-information">
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">☎</span>
+
+                        <a href="tel:0436730777">
+                            0436730777
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">✉</span>
+
+                        <a href="mailto:info@eccgroup.ae">
+                            info@eccgroup.ae
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">▣</span>
+
+                        <span>
+                            Al Quoz Industrial - Al Quoz - Dubai
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="social-icons">
+
+                    <a href="#" target="_blank">
+
+                        <img src="~/images/facebook.jpg"
+                             alt="Facebook" />
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+                        <img src="~/images/twitter.jpg"
+                             alt="Twitter" />
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+                        <img src="~/images/insta.jpg"
+                             alt="Instagram" />
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+                        <img src="~/images/ln.jpg"
+                             alt="LinkedIn" />
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <div class="copyright">
+
+                <p>
+                    © 2026 ECC Group. All rights reserved.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,657 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DesertBoard</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: white;
+        }
+
+        /* =====================================================
+                   HEADER
+                ===================================================== */
+
+        .header {
+            width: 100%;
+            height: 48px;
+            background: #006b5f;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 31px;
+            height: 31px;
+            background: white;
+            border-radius: 50% 0 50% 50%;
+            margin-right: 7px;
+            position: relative;
+        }
+
+            .logo-icon::after {
+                content: "";
+                position: absolute;
+                width: 18px;
+                height: 1px;
+                background: #006b5f;
+                left: 5px;
+                top: 10px;
+                transform: rotate(45deg);
+                box-shadow: 2px 5px 0 #006b5f, 4px 10px 0 #006b5f;
+            }
+
+        .logo-text {
+            font-size: 17px;
+            color: white;
+        }
+
+            .logo-text span {
+                color: #f28b28;
+            }
+
+        /* NAVIGATION */
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+            .navigation a {
+                color: white;
+                text-decoration: none;
+                font-size: 7px;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+                .navigation a:hover {
+                    color: #f28b28;
+                }
+
+
+        /* =====================================================
+                   WHITE SPACE
+                ===================================================== */
+
+        .white-space {
+            width: 100%;
+            height: 165px;
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+                   FOOTER
+                ===================================================== */
+
+        .footer {
+            width: 100%;
+            min-height: 475px;
+            background: #006b5f;
+            padding: 45px 0 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container {
+            width: 76%;
+            max-width: 1050px;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+                   NEWSLETTER
+                ===================================================== */
+
+        .newsletter {
+            width: 100%;
+            height: 95px;
+            background: #efebe7;
+            padding: 25px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .newsletter-title {
+            color: #003f38;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+            .newsletter-title span {
+                color: #f28b28;
+            }
+
+
+        /* EMAIL */
+
+        .subscribe {
+            width: 45%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #858585;
+        }
+
+            .subscribe input {
+                flex: 1;
+                border: none;
+                outline: none;
+                background: transparent;
+                padding: 7px;
+                font-size: 9px;
+            }
+
+            .subscribe button {
+                border: none;
+                outline: none;
+                background: transparent;
+                color: #003f38;
+                font-size: 8px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+                .subscribe button i {
+                    color: #f28b28;
+                    margin-left: 4px;
+                }
+
+
+        /* =====================================================
+                   FOOTER CONTENT
+                ===================================================== */
+
+        .footer-content {
+            margin-top: 43px;
+            display: grid;
+            grid-template-columns: 2.1fr 1fr 1fr 1fr;
+            column-gap: 55px;
+        }
+
+
+        /* =====================================================
+                   FOOTER COLUMN
+                ===================================================== */
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .footer-column h3 {
+                color: white;
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            .footer-column a {
+                color: white;
+                text-decoration: none;
+                font-size: 8px;
+                margin-bottom: 11px;
+            }
+
+                .footer-column a:hover {
+                    color: #f28b28;
+                }
+
+            .footer-column p {
+                color: white;
+                font-size: 8px;
+                margin-bottom: 11px;
+            }
+
+                .footer-column p i {
+                    color: #f28b28;
+                    margin-right: 6px;
+                }
+
+
+        /* =====================================================
+                   FOOTER LOGO
+                ===================================================== */
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50% 0 50% 50%;
+            margin-right: 7px;
+            position: relative;
+        }
+
+            .footer-logo-icon::after {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 1px;
+                background: #006b5f;
+                left: 6px;
+                top: 12px;
+                transform: rotate(45deg);
+                box-shadow: 2px 6px 0 #006b5f, 4px 12px 0 #006b5f;
+            }
+
+        .footer-logo-text {
+            color: white;
+            font-size: 23px;
+        }
+
+            .footer-logo-text span {
+                color: #f28b28;
+            }
+
+
+        /* =====================================================
+                   SOCIAL ICONS
+                ===================================================== */
+
+        .social {
+            display: flex;
+            gap: 4px;
+        }
+
+            .social a {
+                width: 22px;
+                height: 22px;
+                border: 1px solid #f28b28;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #f28b28;
+                text-decoration: none;
+                font-size: 10px;
+            }
+
+                .social a:hover {
+                    background: #f28b28;
+                    color: #006b5f;
+                }
+
+
+        /* =====================================================
+                   COPYRIGHT
+                ===================================================== */
+
+        .copyright {
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            margin-top: 48px;
+            padding-top: 14px;
+            text-align: center;
+            color: rgba(255,255,255,0.75);
+            font-size: 7px;
+        }
+
+
+        /* =====================================================
+                   DECORATIVE CIRCLES
+                ===================================================== */
+
+        .circle-left {
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            left: -160px;
+            top: 0;
+            border: 2px solid rgba(255,255,255,0.10);
+            border-radius: 50%;
+        }
+
+        .circle-right {
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            right: -220px;
+            bottom: -250px;
+            border: 2px solid rgba(255,255,255,0.10);
+            border-radius: 50%;
+        }
+
+
+        /* =====================================================
+                   RESPONSIVE
+                ===================================================== */
+
+        @@media (max-width: 900px) {
+
+            .navigation {
+                gap: 15px;
+            }
+
+            .footer-container {
+                width: 85%;
+            }
+
+            .footer-content {
+                column-gap: 25px;
+            }
+        }
+
+
+        @@media (max-width: 700px) {
+
+            .header {
+                height: auto;
+                padding: 12px 15px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navigation {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .white-space {
+                height: 100px;
+            }
+
+            .newsletter {
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .subscribe {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 35px;
+            }
+        }
+
+
+        @@media (max-width: 500px) {
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .white-space {
+                height: 80px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+        <!-- LOGO -->
+
+        <a href="#" class="logo">
+
+            <div class="logo-icon"></div>
+
+            <div class="logo-text">
+                DesertBoard<span>.</span>
+            </div>
+
+        </a>
+
+
+        <!-- MENU -->
+
+        <nav class="navigation">
+
+            <a href="#">HOME</a>
+
+            <a href="#">ABOUT</a>
+
+            <a href="#">SECTORS</a>
+
+            <a href="#">PRODUCTS</a>
+
+            <a href="#">SUSTAINABILITY</a>
+
+            <a href="#">DOWNLOADS</a>
+
+            <a href="#">NEWS &amp; EVENTS</a>
+
+            <a href="#">FAQS</a>
+
+            <a href="#">CONTACT</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         WHITE SPACE
+    ===================================================== -->
+
+    <div class="white-space"></div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer">
+
+        <!-- Decorative circles -->
+
+        <div class="circle-left"></div>
+
+        <div class="circle-right"></div>
+
+
+        <div class="footer-container">
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="newsletter">
+
+                <div class="newsletter-title">
+
+                    Stay Up To Date with DesertBoard<span>.</span>
+
+                </div>
+
+
+                <div class="subscribe">
+
+                    <input type="email"
+                           placeholder="Email" />
+
+                    <button type="button">
+
+                        Subscribe
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOTER COLUMNS -->
+
+            <div class="footer-content">
+
+
+                <!-- BRAND -->
+
+                <div class="footer-column">
+
+                    <div class="footer-logo">
+
+                        <div class="footer-logo-icon"></div>
+
+                        <div class="footer-logo-text">
+
+                            DesertBoard<span>.</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="social">
+
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="footer-column">
+
+                    <h3>Quick Links</h3>
+
+                    <a href="#">About Us</a>
+
+                    <a href="#">Sectors</a>
+
+                    <a href="#">Sustainability</a>
+
+                    <a href="#">Downloads</a>
+
+                    <a href="#">News &amp; Events</a>
+
+                </div>
+
+
+
+                <!-- QUICK LINKS 2 -->
+
+                <div class="footer-column">
+
+                    <h3>Quick Links</h3>
+
+                    <a href="#">FAQs</a>
+
+                    <a href="#">Glossary</a>
+
+                </div>
+
+
+
+                <!-- CONTACT -->
+
+                <div class="footer-column">
+
+                    <h3>Contact Us</h3>
+
+                    <p>
+                        <i class="fa-solid fa-phone"></i>
+                        +971 24167042
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope"></i>
+                        info@desertboard.ae
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COPYRIGHT -->
+
+            <div class="copyright">
+
+                © 2026 DesertBoard. All rights reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
